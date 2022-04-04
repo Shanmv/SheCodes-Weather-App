@@ -116,3 +116,16 @@ p .wx-degree {
   background-color: rgba(245, 245, 245);
   box-shadow: 2px 1px 1px rgb(0, 0, 0, 0.7);
 }
+.github {
+  color: black;
+  display: block;
+  text-align: center;
+  margin-top: 300px;
+  padding: 10px 0;
+  background: rgb(128, 128, 128, 0.4);
+  width: 100%;
+}
+.github:hover {
+  color: rgb(4, 78, 116);
+  text-decoration: none;
+}
