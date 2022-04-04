@@ -58,7 +58,7 @@ function search(event) {
   let city = document.querySelector(`.bar`);
   let location = document.querySelector(`h1`);
   location.innerHTML = `${city.value}`;
-  let geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location.innerHTML}&appid=${apiKey}`;
+  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${location.innerHTML}&appid=${apiKey}`;
   axios.get(`${geoUrl}`).then(getCoordinates);
 }
 let form = document.querySelector(`.search-bar`);
