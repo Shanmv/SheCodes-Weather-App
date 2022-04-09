@@ -15,106 +15,108 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container">
-      <header class="city-date">
-        <form class="search-bar">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search for city"
-            class="bar"
-            autocomplete="off"
-            autofocus
-          />
-          <input type="submit" value="Search" class="searchButton" />
-        </form>
-        <h1 class="city-name">Brampton, ON</h1>
-        <h2>Sunday, February 13, 2022</h2>
-      </header>
-      <section class="bg-img">
-        <div class="row">
-          <div class="col-8 current-wx">
-            <h4>Partly Cloudy</h4>
-            <p>
-              <span class="weather-icon">icon</span>
+    <div class="wrapper">
+      <div class="container">
+        <header class="city-date">
+          <form class="search-bar">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search for city"
+              class="bar"
+              autocomplete="off"
+              autofocus
+            />
+            <input type="submit" value="Search" class="searchButton" />
+          </form>
+          <h1 class="city-name">Brampton, ON</h1>
+          <h2>Sunday, February 13, 2022</h2>
+        </header>
+        <section class="bg-img">
+          <div class="row">
+            <div class="col-8 current-wx">
+              <h4>Partly Cloudy</h4>
+              <p>
+                <span class="weather-icon">icon</span>
 
-              <span class="wx-degree" id="today-wx">2°</span>
-              <span class="degrees">
-                <span class="celsius">C </span>
-                <span class="fahrenheit"> | F</span>
-              </span>
-            </p>
-          </div>
+                <span class="wx-degree" id="today-wx">2°</span>
+                <span class="degrees">
+                  <span class="celsius">C </span>
+                  <span class="fahrenheit"> | F</span>
+                </span>
+              </p>
+            </div>
 
-          <div class="col-4 side-panel">
-            <table class="wx-factors">
-              <tr>
-                <td class="percent" id="percentPrecip"></td>
-                <td class="factors">Precipitation</td>
-              </tr>
-              <tr>
-                <td class="percent" id="percentHum"></td>
-                <td class="factors">Humidity</td>
-              </tr>
-              <tr>
-                <td class="percent" id="windspeed"></td>
-                <td class="factors">Wind</td>
-              </tr>
-            </table>
+            <div class="col-4 side-panel">
+              <table class="wx-factors">
+                <tr>
+                  <td class="percent" id="percentPrecip"></td>
+                  <td class="factors">Precipitation</td>
+                </tr>
+                <tr>
+                  <td class="percent" id="percentHum"></td>
+                  <td class="factors">Humidity</td>
+                </tr>
+                <tr>
+                  <td class="percent" id="windspeed"></td>
+                  <td class="factors">Wind</td>
+                </tr>
+              </table>
+            </div>
           </div>
-        </div>
-        <div class="row fut-forecast">
-          <div class="col wk-forecast day1">
-            <span class="wk-Day" id="wkDay1"> </span>
-            <br />
-            <span class="wx-icon" id="icon1">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx1">12°</span>
+          <div class="row fut-forecast">
+            <div class="col wk-forecast day1">
+              <span class="wk-Day" id="wkDay1"> </span>
+              <br />
+              <span class="wx-icon" id="icon1">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx1">12°</span>
+            </div>
+            <div class="col wk-forecast day2">
+              <span class="wk-Day" id="wkDay2"> </span>
+              <br />
+              <span class="wx-icon" id="icon2">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx2">12°</span>
+            </div>
+            <div class="col wk-forecast day3">
+              <span class="wk-Day" id="wkDay3"> </span>
+              <br />
+              <span class="wx-icon" id="icon3">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx3">12°</span>
+            </div>
+            <div class="col wk-forecast day4">
+              <span class="wk-Day" id="wkDay4"> </span>
+              <br />
+              <span class="wx-icon" id="icon4">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx4">12°</span>
+            </div>
+            <div class="col wk-forecast day5">
+              <span class="wk-Day" id="wkDay5"> </span>
+              <br />
+              <span class="wx-icon" id="icon5">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx5">12°</span>
+            </div>
+            <div class="col wk-forecast day6">
+              <span class="wk-Day" id="wkDay6"> </span>
+              <br />
+              <span class="wx-icon" id="icon6">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx6">12°</span>
+            </div>
+            <div class="col wk-forecast day7">
+              <span class="wk-Day" id="wkDay7"> </span>
+              <br />
+              <span class="wx-icon" id="icon7">icon</span>
+              <br />
+              <span class="wx-forecast" id="wx7">12°</span>
+            </div>
           </div>
-          <div class="col wk-forecast day2">
-            <span class="wk-Day" id="wkDay2"> </span>
-            <br />
-            <span class="wx-icon" id="icon2">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx2">12°</span>
-          </div>
-          <div class="col wk-forecast day3">
-            <span class="wk-Day" id="wkDay3"> </span>
-            <br />
-            <span class="wx-icon" id="icon3">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx3">12°</span>
-          </div>
-          <div class="col wk-forecast day4">
-            <span class="wk-Day" id="wkDay4"> </span>
-            <br />
-            <span class="wx-icon" id="icon4">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx4">12°</span>
-          </div>
-          <div class="col wk-forecast day5">
-            <span class="wk-Day" id="wkDay5"> </span>
-            <br />
-            <span class="wx-icon" id="icon5">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx5">12°</span>
-          </div>
-          <div class="col wk-forecast day6">
-            <span class="wk-Day" id="wkDay6"> </span>
-            <br />
-            <span class="wx-icon" id="icon6">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx6">12°</span>
-          </div>
-          <div class="col wk-forecast day7">
-            <span class="wk-Day" id="wkDay7"> </span>
-            <br />
-            <span class="wx-icon" id="icon7">icon</span>
-            <br />
-            <span class="wx-forecast" id="wx7">12°</span>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
     <footer>
       <a
