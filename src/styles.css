@@ -12,6 +12,11 @@
 .bar {
   width: 300px;
   height: 40px;
+  border: 2px solid #0e185f;
+  border-radius: 4px;
+}
+.bar:focus {
+  outline-color: rgb(187, 232, 255);
 }
 .searchButton {
   height: 40px;
@@ -62,7 +67,7 @@ p {
   text-align: justify-center;
 }
 
-p .wx-icon {
+p .weather-icon {
   font-size: 40px;
   position: relative;
   bottom: 30px;
@@ -111,6 +116,14 @@ p .wx-degree {
 }
 .wk-forecast:hover {
   cursor: pointer;
+}
+.wx-icon {
+  position: relative;
+  top: 5px;
+}
+.wx-forecast {
+  position: relative;
+  top: 15px;
 }
 .day1 {
   background-color: rgba(245, 245, 245);
