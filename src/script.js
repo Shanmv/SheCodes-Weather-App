@@ -92,4 +92,11 @@ function displayTemp(response) {
   let description = response.data.current.weather[0].description;
   let weather = document.querySelector(`h4`);
   weather.innerHTML = `${description}`;
+
+  for (let i = 0; i < 7; i++) {
+    let forecastTempHigh = Math.round(response.data.daily[i].temp.max);
+    let forecastTempLow = Math.round(response.data.daily[i].temp.min);
+    let dailyTemp = document.querySelectorAll(`.wx-forecast`);
+    dailyTemp[i].innerHTML = `${forecastTempHigh}° | ${forecastTempLow}°`;
+  }
 }

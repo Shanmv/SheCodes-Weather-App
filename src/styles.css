@@ -126,6 +126,7 @@ p .wx-degree {
   margin: 4px;
   height: 100px;
   max-width: 70px;
+  padding: 0;
 }
 .wk-forecast:hover {
   cursor: pointer;
