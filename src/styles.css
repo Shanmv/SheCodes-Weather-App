@@ -103,6 +103,9 @@ p .wx-degree {
   color: rgb(16, 16, 104);
   font-weight: bold;
 }
+.fahrenheit {
+  color: Black;
+}
 
 .factors {
   padding: 10px 5px;
@@ -127,9 +130,12 @@ p .wx-degree {
   height: 100px;
   max-width: 70px;
   padding: 0;
+  transition: 50ms all ease-in;
 }
 .wk-forecast:hover {
   cursor: pointer;
+  background: #969696;
+  color: white;
 }
 .wx-icon {
   position: relative;
