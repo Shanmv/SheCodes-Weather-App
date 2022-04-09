@@ -1,7 +1,7 @@
 .container {
-  max-width: 40%;
+  max-width: 600px;
   border: 0.8px solid rgb(32, 7, 80);
-  border-radius: 4px;
+  border-radius: 40px;
   padding: 0;
   margin-top: 5px;
 }
@@ -10,7 +10,7 @@
   margin: 5px;
 }
 .bar {
-  width: 50%;
+  width: 300px;
   height: 40px;
 }
 .searchButton {
@@ -25,6 +25,7 @@
 .city-date {
   background: whitesmoke;
   max-width: 100%;
+  border-radius: 40px 40px 0 0;
 }
 h1 {
   margin: 0;
@@ -43,6 +44,7 @@ h2 {
     rgb(187, 232, 255) 11.1%,
     rgb(4, 78, 116) 107.5%
   );
+  border-radius: 0 0 40px 40px;
   width: 100%;
 }
 h4 {
