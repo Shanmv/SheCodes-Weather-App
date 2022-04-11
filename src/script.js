@@ -33,7 +33,7 @@ function formatDate(currentDate) {
   let twelveHr = hour % 12 || 12;
   let minute = currentDate.getMinutes();
   minute = minute <= 9 ? "0" + minute : minute;
-  let formattedDate = `${day}, ${month} ${date}, ${year} ${twelveHr}:${minute} ${amPm}`;
+  let formattedDate = `${day}, ${month} ${date}, ${year}   <small>Last updated at </small>${twelveHr}:${minute} ${amPm}`;
   return formattedDate;
 }
 let today = formatDate(new Date());
@@ -76,7 +76,12 @@ function displayTemp(response) {
   let currentTemp = Math.round(response.data.current.temp);
   let trueTemp = document.querySelector("#today-wx");
   trueTemp.innerHTML = `${currentTemp}°`;
-  
+  let currentIcon = document.querySelector(".weather-icon");
+  currentIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
+  );
+
   //precipitation
   let precip = Math.round(response.data.daily[0].pop);
   let chancePrecip = document.querySelector("#percentPrecip");
@@ -101,6 +106,10 @@ function displayTemp(response) {
     let dailyTempLow = document.querySelectorAll(".tempLow");
     dailyTempHigh[i].innerHTML = `${forecastTempHigh}° |`;
     dailyTempLow[i].innerHTML = ` ${forecastTempLow}°`;
-   
+    let dailyIcon = document.querySelectorAll(".wx-icon");
+    dailyIcon[i].setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.daily[i].weather[0].icon}@2x.png`
+    );
   }
 }

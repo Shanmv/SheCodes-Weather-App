@@ -1,5 +1,5 @@
 .wrapper {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
     url("../media/pexels-james-wheeler-medium.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,26 +23,35 @@
 }
 .bar {
   width: 300px;
-  height: 40px;
-  border: 2px solid #0e185f;
-  border-radius: 4px;
+  height: 35px;
+  border: none;
+  border-bottom: 2px solid #182aa5;
+  color: whitesmoke;
+  background: none;
+  margin-bottom: 8px;
 }
 .bar:focus {
-  outline-color: rgb(187, 232, 255);
+  outline: 1px solid rgba(245, 245, 245, 0.511);
+  border-radius: 4px;
 }
 .searchButton {
   height: 40px;
   width: 80px;
   background-color: rgb(169, 216, 240);
+  color: #06113c;
   border: 1px solid transparent;
   border-radius: 2px;
   box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
   font-weight: bold;
 }
+::placeholder {
+  color: rgba(245, 245, 245, 0.7);
+}
 .city-date {
-  background: whitesmoke;
+  background: #06113c90;
   max-width: 100%;
   border-radius: 40px 40px 0 0;
+  color: whitesmoke;
 }
 h1 {
   margin: 0;
@@ -55,12 +64,13 @@ h2 {
 }
 .current-wx {
   text-align: center;
+  color: #06113c;
 }
 .bg-img {
   background: linear-gradient(
     111.5deg,
-    rgb(187, 232, 255) 11.1%,
-    rgb(4, 78, 116) 107.5%
+    rgb(187, 232, 255, 0.9) 11.1%,
+    rgb(4, 78, 116, 0.9) 107.5%
   );
   border-radius: 0 0 40px 40px;
   width: 100%;
@@ -69,9 +79,8 @@ h4 {
   font-size: 20px;
   line-height: 26px;
   text-transform: capitalize;
-  border: 1px soid transparent;
   border-radius: 4px 20px;
-  background-color: rgba(245, 245, 245, 0.85);
+  background-color: rgba(245, 245, 245, 0.5);
   max-width: 200px;
   margin: 5px 100px 5px auto;
   padding: 4px 20px;
@@ -82,8 +91,7 @@ p {
 
 p .weather-icon {
   font-size: 40px;
-  position: relative;
-  bottom: 30px;
+  margin: 0;
 }
 p .wx-degree {
   font-size: 70px;
@@ -91,20 +99,22 @@ p .wx-degree {
   position: relative;
   top: 20px;
 }
-
+.degrees {
+  position: relative;
+  top: -15px;
+}
+.celsius {
+  font-weight: bold;
+}
+.fahrenheit {
+  color: Black;
+}
 .wx-factors {
   position: relative;
   top: 0px;
   right: 0px;
   color: whitesmoke;
   width: 195px;
-}
-.celsius {
-  color: rgb(16, 16, 104);
-  font-weight: bold;
-}
-.fahrenheit {
-  color: Black;
 }
 
 .factors {
@@ -122,9 +132,11 @@ p .wx-degree {
 .wk-forecast {
   border: 1px solid transparent;
   border-radius: 15px;
-  background-color: rgba(245, 245, 245, 0.85);
+  background-color: rgba(245, 245, 245, 0.3);
+  backdrop-filter: blur(10px);
   box-shadow: 1px 0.8px 0.8px rgb(0, 0, 0, 0.7);
   text-align: center;
+  color: whitesmoke;
   font-weight: 500;
   margin: 4px;
   height: 100px;
@@ -134,32 +146,38 @@ p .wx-degree {
 }
 .wk-forecast:hover {
   cursor: pointer;
-  background: #969696;
-  color: white;
+  background: rgba(245, 245, 245, 0.5);
+  backdrop-filter: blur(10px);
 }
 .wx-icon {
   position: relative;
-  top: 5px;
+  margin: 0;
+  width: 40px;
 }
 .wx-forecast {
   position: relative;
-  top: 15px;
 }
 .day1 {
-  background-color: rgba(245, 245, 245);
   box-shadow: 2px 1px 1px rgb(0, 0, 0, 0.7);
 }
-.github {
-  color: black;
+footer {
+  color: #ddddddce;
+
   display: block;
   text-align: center;
   position: fixed;
   bottom: 0;
   padding: 10px 0;
-  background: rgb(128, 128, 128, 0.4);
+  background: rgb(128, 128, 128, 0.3);
+  backdrop-filter: blur(10px);
   width: 100%;
 }
+footer .github {
+  color: #9b9b9b;
+
+  transition: 200ms all ease-in-out;
+}
 .github:hover {
-  color: rgb(4, 78, 116);
+  color: #1d32c8;
   text-decoration: none;
 }
