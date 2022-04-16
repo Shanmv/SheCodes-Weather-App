@@ -107,7 +107,16 @@ p .wx-degree {
   font-weight: bold;
 }
 .fahrenheit {
-  color: Black;
+  font-weight: bold;
+}
+
+.active {
+  color: #06113c;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: #06113c;
 }
 .wx-factors {
   position: relative;

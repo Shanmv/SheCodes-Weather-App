@@ -74,7 +74,8 @@ function getCoordinates(response) {
 function displayTemp(response) {
   console.log(response.data);
   var currentTemp = Math.round(response.data.current.temp);
-  fahrenheitTempLink = currentTemp;
+  currentTempLink = currentTemp;
+
   let trueTemp = document.querySelector("#today-wx");
   trueTemp.innerHTML = `${currentTemp}°`;
   let currentIcon = document.querySelector(".weather-icon");
@@ -116,10 +117,23 @@ function displayTemp(response) {
 }
 function displayFahrenheitTemp(event) {
   event.preventDefault();
-  let fahrenheitCalc = (fahrenheitTempLink * 9) / 5 + 32;
   let fahrenheitTemp = document.querySelector("#today-wx");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitCalc = Math.round((currentTempLink * 9) / 5 + 32);
+
   fahrenheitTemp.innerHTML = `${fahrenheitCalc}`;
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let celsiusTemp = document.querySelector("#today-wx");
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  celsiusTemp.innerHTML = `${currentTempLink}`;
+}
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
