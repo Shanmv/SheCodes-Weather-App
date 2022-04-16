@@ -77,7 +77,7 @@ function displayTemp(response) {
   currentTempLink = currentTemp;
 
   let trueTemp = document.querySelector("#today-wx");
-  trueTemp.innerHTML = `${currentTemp}°`;
+  trueTemp.innerHTML = `${currentTemp}`;
   let currentIcon = document.querySelector(".weather-icon");
   currentIcon.setAttribute(
     "src",
