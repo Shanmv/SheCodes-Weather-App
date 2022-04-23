@@ -66,6 +66,12 @@ function onError(error) {
 }
 window.onload = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
+let currentPosition = document.querySelector("#locationButton");
+currentPosition.addEventListener("click", fetchLocation);
+function fetchLocation() {
+  navigator.geolocation.watchPosition(onSuccess, onError);
+}
+
 //Search City
 function search(event) {
   event.preventDefault();

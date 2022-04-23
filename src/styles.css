@@ -34,18 +34,30 @@
   outline: 1px solid rgba(245, 245, 245, 0.511);
   border-radius: 4px;
 }
-.searchButton {
-  height: 40px;
-  width: 80px;
-  background-color: rgb(169, 216, 240);
-  color: #06113c;
-  border: 1px solid transparent;
-  border-radius: 2px;
-  box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.7);
-  font-weight: bold;
-}
 ::placeholder {
   color: rgba(245, 245, 245, 0.7);
+}
+.searchButton {
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  opacity: 0.9;
+  font-weight: bold;
+  transition: 200ms all ease-in-out;
+  position: relative;
+  right: 32px;
+}
+button:hover {
+  color: rgb(187, 232, 255, 0.9);
+}
+.locationButton {
+  background-color: transparent;
+  color: whitesmoke;
+  border: none;
+  font-size: 22px;
+  position: relative;
+  transition: 200ms all ease-in-out;
 }
 .city-date {
   background: #06113c90;
@@ -82,26 +94,26 @@ h4 {
   border-radius: 4px 20px;
   background-color: rgba(245, 245, 245, 0.5);
   max-width: 200px;
-  margin: 5px 100px 5px auto;
+  margin: 5px 100px 0px auto;
   padding: 4px 20px;
 }
 p {
   text-align: justify-center;
+  margin: 0;
 }
 
 p .weather-icon {
   font-size: 40px;
-  margin: 0;
+  position: relative;
+  bottom: 20px;
 }
 p .wx-degree {
   font-size: 70px;
   line-height: 100px;
-  position: relative;
-  top: 20px;
 }
 .degrees {
   position: relative;
-  top: -15px;
+  bottom: 35px;
 }
 .celsius {
   font-weight: bold;
@@ -120,7 +132,7 @@ p .wx-degree {
 }
 .wx-factors {
   position: relative;
-  top: 0px;
+  top: 10px;
   right: 0px;
   color: whitesmoke;
   width: 195px;
