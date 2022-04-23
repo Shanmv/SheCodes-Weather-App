@@ -11,6 +11,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <script src="https://kit.fontawesome.com/9c95089bc8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
@@ -18,7 +19,7 @@
     <div class="wrapper">
       <div class="container">
         <header class="city-date">
-          <form class="search-bar">
+          <form class=" clearfix search-bar">
             <input
               type="text"
               name="search"
@@ -27,7 +28,8 @@
               autocomplete="off"
               autofocus
             />
-            <input type="submit" value="Search" class="searchButton" />
+            <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="locationButton" id="locationButton"title="Use Current Location"><i class="fa-solid fa-location-dot"></i></button>
           </form>
           <h1 class="city-name">Brampton, ON</h1>
           <h2>Sunday, February 13, 2022</h2>
