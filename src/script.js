@@ -51,6 +51,26 @@ function getLabel(day) {
 getLabel(new Date());
 //import weather
 let apiKey = "eab52e4b15607908ae3212e851e07600";
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?&exclude=minutely,hourly&limit=3&units=metric&appid=${apiKey}`;
+
+function onSuccess(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let positionUrl = `${apiUrl}&lat=${lat}&lon=${lon}`;
+  axios.get(positionUrl).then(displayTemp);
+}
+function onError(error) {
+  if (!navigator.geolocation || error.code === error.PERMISSION_DENIED) {
+    alert(`Unable to retrieve your location, please enter city`);
+  }
+}
+window.onload = navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+let currentPosition = document.querySelector("#locationButton");
+currentPosition.addEventListener("click", fetchLocation);
+function fetchLocation() {
+  navigator.geolocation.watchPosition(onSuccess, onError);
+}
 
 //Search City
 function search(event) {
@@ -67,8 +87,8 @@ form.addEventListener("submit", search);
 function getCoordinates(response) {
   let latitude = response.data[0].lat;
   let longitude = response.data[0].lon;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly&limit=3&units=metric&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayTemp);
+  let searchUrl = `${apiUrl}&lat=${latitude}&lon=${longitude}`;
+  axios.get(searchUrl).then(displayTemp);
 }
 
 function displayTemp(response) {
