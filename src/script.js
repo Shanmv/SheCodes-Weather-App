@@ -52,12 +52,21 @@ getLabel(new Date());
 //import weather
 let apiKey = "eab52e4b15607908ae3212e851e07600";
 let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?&exclude=minutely,hourly&limit=3&units=metric&appid=${apiKey}`;
+let geoEndpoint = `https://api.openweathermap.org/geo/1.0/reverse?appid=${apiKey}`;
 
 function onSuccess(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let positionUrl = `${apiUrl}&lat=${lat}&lon=${lon}`;
   axios.get(positionUrl).then(displayTemp);
+  if (navigator.geolocation) {
+    let geoApi = `${geoEndpoint}&lat=${lat}&lon=${lon}`;
+    axios.get(geoApi).then(getCityName);
+  }
+  function getCityName(response) {
+    let cityHeading = document.querySelector("h1");
+    cityHeading.innerHTML = `${response.data[0].name}`;
+  }
 }
 function onError(error) {
   if (!navigator.geolocation || error.code === error.PERMISSION_DENIED) {
