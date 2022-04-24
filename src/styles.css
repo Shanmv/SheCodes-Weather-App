@@ -3,83 +3,83 @@
     url("https://source.unsplash.com/random/1920x1080/?landscape");
   background-repeat: no-repeat;
   background-size: cover;
-  position: absolute;
   height: 100%;
+  position: absolute;
   width: 100%;
 }
 .container {
-  max-width: 600px;
+  border-radius: 40px;
   border: 0.8px solid transparent;
   box-shadow: 4px rgb(0, 0, 0, 0.8);
-  border-radius: 40px;
   font-family: "Allerta", sans-serif;
+  max-width: 600px;
   padding: 0;
   position: relative;
   top: 25%;
 }
 .search-bar {
-  text-align: center;
   position: relative;
+  text-align: center;
   top: 4px;
 }
 .bar {
-  width: 300px;
-  height: 35px;
-  border: none;
-  border-bottom: 2px solid #182aa5;
-  color: whitesmoke;
   background: none;
+  border-bottom: 2px solid #182aa5;
+  border: none;
+  color: whitesmoke;
+  height: 35px;
   margin-bottom: 8px;
+  width: 300px;
 }
 .bar:focus {
-  outline: 1px solid rgba(245, 245, 245, 0.511);
   border-radius: 4px;
+  outline: 1px solid rgba(245, 245, 245, 0.511);
 }
 ::placeholder {
   color: rgba(245, 245, 245, 0.7);
 }
 .searchButton {
-  font-size: 20px;
   background-color: transparent;
   border: none;
   color: whitesmoke;
-  opacity: 0.9;
+  font-size: 20px;
   font-weight: bold;
-  transition: 200ms all ease-in-out;
+  opacity: 0.9;
   position: relative;
   right: 32px;
+  transition: 200ms all ease-in-out;
 }
 button:hover {
   color: rgb(187, 232, 255, 0.9);
 }
 .locationButton {
   background-color: transparent;
-  color: whitesmoke;
   border: none;
+  color: whitesmoke;
   font-size: 22px;
   position: relative;
   transition: 200ms all ease-in-out;
 }
 .city-date {
   background: #06113c90;
-  max-width: 100%;
   border-radius: 40px 40px 0 0;
   color: whitesmoke;
+  max-width: 100%;
 }
 h1 {
-  margin: 0;
   font-size: 32px;
   line-height: 34px;
+  margin: 0;
 }
 h2 {
   font-size: 24px;
   margin: 0;
 }
 .current-wx {
-  text-align: center;
   color: #06113c;
+  text-align: center;
 }
-.bg-img {
+.bg-color {
   background: linear-gradient(
     111.5deg,
     rgb(187, 232, 255, 0.9) 11.1%,
@@ -89,32 +89,32 @@ h2 {
   width: 100%;
 }
 h4 {
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 4px 20px;
   font-size: 20px;
   line-height: 26px;
-  text-transform: capitalize;
-  border-radius: 4px 20px;
-  background-color: rgba(245, 245, 245, 0.5);
-  max-width: fit-content;
   margin: 5px 100px 0px auto;
+  max-width: fit-content;
   padding: 4px 20px;
+  text-transform: capitalize;
 }
 p {
-  text-align: justify-center;
   margin: 0;
+  text-align: justify-center;
 }
 
 p .weather-icon {
+  bottom: 20px;
   font-size: 40px;
   position: relative;
-  bottom: 20px;
 }
 p .wx-degree {
   font-size: 70px;
   line-height: 100px;
 }
 .degrees {
-  position: relative;
   bottom: 35px;
+  position: relative;
 }
 .celsius {
   font-weight: bold;
@@ -128,14 +128,14 @@ p .wx-degree {
   cursor: default;
 }
 .active:hover {
-  text-decoration: none;
   color: #06113c;
+  text-decoration: none;
 }
 .wx-factors {
-  position: relative;
-  top: 10px;
-  right: 0px;
   color: whitesmoke;
+  position: relative;
+  right: 0px;
+  top: 10px;
   width: 195px;
 }
 
@@ -148,46 +148,46 @@ p .wx-degree {
   text-align: left;
 }
 .fut-forecast {
-  max-width: 600px;
   margin: 0 25px auto;
+  max-width: 600px;
 }
 .wk-forecast {
-  border: 1px solid transparent;
-  border-radius: 15px;
-  background-color: rgba(245, 245, 245, 0.3);
   backdrop-filter: blur(10px);
+  background-color: rgba(245, 245, 245, 0.3);
+  border-radius: 15px;
+  border: 1px solid transparent;
   box-shadow: 1px 0.8px 0.8px rgb(0, 0, 0, 0.7);
-  text-align: center;
   color: whitesmoke;
   font-weight: 500;
-  margin: 4px;
   height: 100px;
+  margin: 4px;
   max-width: 70px;
   padding: 0;
+  text-align: center;
   transition: 50ms all ease-in;
 }
 .wk-forecast:hover {
-  cursor: pointer;
-  background: rgba(245, 245, 245, 0.5);
   backdrop-filter: blur(10px);
+  background: rgba(245, 245, 245, 0.5);
+  cursor: pointer;
 }
 .wx-icon {
-  position: relative;
   margin: 0;
+  position: relative;
   width: 40px;
 }
 .wx-forecast {
   position: relative;
 }
-.day1 {
-  box-shadow: 2px 1px 1px rgb(0, 0, 0, 0.7);
+.tempLow {
+  opacity: 0.7;
 }
 .img-source {
-  color: whitesmoke;
-  opacity: 0.4;
-  display: block;
-  position: fixed;
   bottom: 45px;
+  color: whitesmoke;
+  display: block;
+  opacity: 0.4;
+  position: fixed;
   right: 0;
   z-index: 1;
 }
@@ -195,20 +195,18 @@ p .wx-degree {
   color: whitesmoke;
 }
 .author {
-  color: #ddddddce;
-
-  display: block;
-  text-align: center;
-  position: fixed;
-  bottom: 0;
-  padding: 10px 0;
-  background: rgb(128, 128, 128, 0.3);
   backdrop-filter: blur(10px);
+  background: rgb(128, 128, 128, 0.3);
+  bottom: 0;
+  color: #ddddddce;
+  display: block;
+  padding: 10px 0;
+  position: fixed;
+  text-align: center;
   width: 100%;
 }
 .github {
   color: #9b9b9b;
-
   transition: 200ms all ease-in-out;
 }
 .github:hover {
