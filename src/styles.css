@@ -1,6 +1,6 @@
 .wrapper {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
-    url("https://picsum.photos/1920/1080?landscape.jpg");
+    url("https://source.unsplash.com/random/1920x1080/?landscape");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
@@ -182,7 +182,19 @@ p .wx-degree {
 .day1 {
   box-shadow: 2px 1px 1px rgb(0, 0, 0, 0.7);
 }
-footer {
+.img-source {
+  color: whitesmoke;
+  opacity: 0.4;
+  display: block;
+  position: fixed;
+  bottom: 45px;
+  right: 0;
+  z-index: 1;
+}
+.img-source a {
+  color: whitesmoke;
+}
+.author {
   color: #ddddddce;
 
   display: block;
@@ -194,7 +206,7 @@ footer {
   backdrop-filter: blur(10px);
   width: 100%;
 }
-footer .github {
+.github {
   color: #9b9b9b;
 
   transition: 200ms all ease-in-out;
