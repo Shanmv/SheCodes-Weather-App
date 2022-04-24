@@ -94,7 +94,7 @@ h4 {
   text-transform: capitalize;
   border-radius: 4px 20px;
   background-color: rgba(245, 245, 245, 0.5);
-  max-width: 200px;
+  max-width: fit-content;
   margin: 5px 100px 0px auto;
   padding: 4px 20px;
 }
