@@ -1,6 +1,6 @@
 .wrapper {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)),
-    url("../media/pexels-james-wheeler-medium.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url("https://picsum.photos/1920/1080?landscape.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: absolute;
