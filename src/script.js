@@ -82,17 +82,21 @@ function fetchLocation() {
 }
 
 //Search City
-function search(event) {
+
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector(".bar");
   let location = document.querySelector("h1");
   location.innerHTML = `${city.value}`;
-  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${location.innerHTML}&appid=${apiKey}`;
-  axios.get(geoUrl).then(getCoordinates);
+  search(`${city.value}`);
 }
 let form = document.querySelector(".search-bar");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
 
+function search(city) {
+  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+  axios.get(geoUrl).then(getCoordinates);
+}
 function getCoordinates(response) {
   let latitude = response.data[0].lat;
   let longitude = response.data[0].lon;
@@ -101,35 +105,26 @@ function getCoordinates(response) {
 }
 
 function displayTemp(response) {
-  console.log(response.data);
   var currentTemp = Math.round(response.data.current.temp);
   currentTempLink = currentTemp;
 
   let trueTemp = document.querySelector("#today-wx");
   trueTemp.innerHTML = `${currentTemp}`;
+
+  let chancePrecip = document.querySelector("#percentPrecip");
+  let Humidity = document.querySelector("#percentHum");
+  let windspeed = document.querySelector("#windspeed");
+  let weather = document.querySelector("h4");
   let currentIcon = document.querySelector(".weather-icon");
+
+  chancePrecip.innerHTML = `${Math.round(response.data.daily[0].pop)}%`;
+  Humidity.innerHTML = `${response.data.current.humidity}%`;
+  windspeed.innerHTML = `${Math.round(response.data.current.wind_speed)}km/h`;
+  weather.innerHTML = `${response.data.current.weather[0].description}`; //humidity
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
   );
-
-  //precipitation
-  let precip = Math.round(response.data.daily[0].pop);
-  let chancePrecip = document.querySelector("#percentPrecip");
-  chancePrecip.innerHTML = `${precip}%`;
-  //humidity
-  let percentHumidity = response.data.current.humidity;
-  let Humidity = document.querySelector("#percentHum");
-  Humidity.innerHTML = `${percentHumidity}%`;
-  //windspeed
-  let wind = Math.round(response.data.current.wind_speed);
-  let windspeed = document.querySelector("#windspeed");
-  windspeed.innerHTML = `${wind}km/h`;
-  //description
-  let description = response.data.current.weather[0].description;
-  let weather = document.querySelector("h4");
-  weather.innerHTML = `${description}`;
-  //loop through daily array
   for (let i = 0; i < 7; i++) {
     let forecastTempHigh = Math.round(response.data.daily[i].temp.max);
     let forecastTempLow = Math.round(response.data.daily[i].temp.min);
