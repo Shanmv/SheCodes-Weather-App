@@ -88,6 +88,9 @@ h2 {
   border-radius: 0 0 40px 40px;
   width: 100%;
 }
+.bg-color.loading {
+  visibility: hidden;
+}
 h4 {
   background-color: rgba(245, 245, 245, 0.5);
   border-radius: 4px 20px;
