@@ -39,16 +39,7 @@ function formatDate(currentDate) {
 let today = formatDate(new Date());
 let h2 = document.querySelector("h2");
 h2.innerHTML = `${today}`;
-//loop days of the week for forecast
-function getLabel(day) {
-  let forecastDay = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  for (let i = 0; i < forecastDay.length; i++) {
-    let name = forecastDay[(day.getDay() + i) % 7];
-    let dayName = document.querySelectorAll(".wk-Day");
-    dayName[i].innerHTML = `${name}`;
-  }
-}
-getLabel(new Date());
+
 //import weather
 let apiKey = "eab52e4b15607908ae3212e851e07600";
 let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?&exclude=minutely,hourly&limit=3&units=metric&appid=${apiKey}`;
@@ -80,9 +71,29 @@ currentPosition.addEventListener("click", fetchLocation);
 function fetchLocation() {
   navigator.geolocation.watchPosition(onSuccess, onError);
 }
+function displayForecast() {
+  let forecastElement = document.querySelector(".forecast");
+  let forecastHTML = `<div class="row fut-forecast">`;
+  let forecastDay = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  forecastDay.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col wk-forecast">
+              <h6 class="wk-Day">${day}</h6>
+              <img src="" class="wx-icon"" />
+              <h6 class="wx-forecast">
+                <span class="tempHigh temperature">12°</span>
+                <span class="tempLow temperature">2°</span>
+              </h6>
+            </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 //Search City
-
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector(".bar");
@@ -120,7 +131,7 @@ function displayTemp(response) {
   chancePrecip.innerHTML = `${Math.round(response.data.daily[0].pop)}%`;
   Humidity.innerHTML = `${response.data.current.humidity}%`;
   windspeed.innerHTML = `${Math.round(response.data.current.wind_speed)}km/h`;
-  weather.innerHTML = `${response.data.current.weather[0].description}`; //humidity
+  weather.innerHTML = `${response.data.current.weather[0].description}`;
   currentIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
@@ -139,6 +150,7 @@ function displayTemp(response) {
     );
   }
 }
+
 function displayFahrenheitTemp(event) {
   event.preventDefault();
   let fahrenheitTemp = document.querySelector("#today-wx");
