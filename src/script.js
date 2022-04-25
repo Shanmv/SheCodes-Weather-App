@@ -125,12 +125,13 @@ function displayForecast(response) {
   let forecastElement = document.querySelector(".forecast");
   let forecastHTML = `<div class="row fut-forecast">`;
 
-  forecast.forEach(function (forecastDay) {
-    let date = new Date(forecastDay.dt * 1000);
-    let day = `${date.toLocaleString("en-US", { weekday: "short" })}`;
-    forecastHTML =
-      forecastHTML +
-      `<div class="col wk-forecast">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7) {
+      let date = new Date(forecastDay.dt * 1000);
+      let day = `${date.toLocaleString("en-US", { weekday: "short" })}`;
+      forecastHTML =
+        forecastHTML +
+        `<div class="col wk-forecast">
               <h6 class="wk-Day">${day}</h6>
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
@@ -138,13 +139,15 @@ function displayForecast(response) {
               <h6 class="wx-forecast">
                 <span class="tempHigh temperature">${Math.round(
                   forecastDay.temp.max
-                )}</span>
+                )}° | </span>
                 <span class="tempLow temperature">${Math.round(
                   forecastDay.temp.min
-                )}</span>
+                )}°</span>
               </h6>
             </div>`;
+    }
   });
+
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
