@@ -77,10 +77,15 @@ function fetchLocation() {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector(".bar");
-  let location = document.querySelector("h1");
-  location.innerHTML = `${city.value}`;
-  search(`${city.value}`);
+
+  if (city.value.length <= 0) {
+    alert(`Please enter city`);
+    return null;
+  } else {
+    search(`${city.value}`);
+  }
 }
+
 let form = document.querySelector(".search-bar");
 form.addEventListener("submit", handleSubmit);
 
@@ -96,10 +101,13 @@ function search(city) {
   let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
   axios.get(geoUrl).then(getCoordinates).catch(error);
 }
+
 function getCoordinates(response) {
   let latitude = response.data[0].lat;
   let longitude = response.data[0].lon;
   let searchUrl = `${apiUrl}&lat=${latitude}&lon=${longitude}`;
+  let location = document.querySelector("h1");
+  location.innerHTML = `${response.data[0].name}, ${response.data[0].state}`;
   axios.get(searchUrl).then(displayTemp);
   axios.get(searchUrl).then(displayForecast);
 }
