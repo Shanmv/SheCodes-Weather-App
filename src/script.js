@@ -84,9 +84,17 @@ function handleSubmit(event) {
 let form = document.querySelector(".search-bar");
 form.addEventListener("submit", handleSubmit);
 
+function error() {
+  if (200 !== response.status) {
+    alert(
+      "Sorry, looks like there was a problem. Status Code: " + response.status
+    );
+    return;
+  }
+}
 function search(city) {
   let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
-  axios.get(geoUrl).then(getCoordinates);
+  axios.get(geoUrl).then(getCoordinates).catch(error);
 }
 function getCoordinates(response) {
   let latitude = response.data[0].lat;
