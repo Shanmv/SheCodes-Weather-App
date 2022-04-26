@@ -98,7 +98,6 @@ function getCoordinates(response) {
 
 function displayTemp(response) {
   var currentTemp = Math.round(response.data.current.temp);
-  currentTempLink = currentTemp;
 
   let trueTemp = document.querySelector("#today-wx");
   trueTemp.innerHTML = `${currentTemp}`;
@@ -135,7 +134,7 @@ function displayForecast(response) {
               <h6 class="wk-Day">${day}</h6>
               <img src="http://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
-              }@2x.png" class="wx-icon"" />
+              }@2x.png" class="wx-icon"/>
               <h6 class="wx-forecast">
                 <span class="tempHigh temperature">${Math.round(
                   forecastDay.temp.max
@@ -151,26 +150,3 @@ function displayForecast(response) {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-function displayFahrenheitTemp(event) {
-  event.preventDefault();
-  let fahrenheitTemp = document.querySelector("#today-wx");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheitCalc = Math.round((currentTempLink * 9) / 5 + 32);
-
-  fahrenheitTemp.innerHTML = `${fahrenheitCalc}`;
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
-
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  let celsiusTemp = document.querySelector("#today-wx");
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  celsiusTemp.innerHTML = `${currentTempLink}`;
-}
-let celsiusLink = document.querySelector("#celsius");
-celsiusLink.addEventListener("click", displayCelsiusTemp);

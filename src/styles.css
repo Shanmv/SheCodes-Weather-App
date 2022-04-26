@@ -118,22 +118,11 @@ p .wx-degree {
 .degrees {
   bottom: 35px;
   position: relative;
-}
-.celsius {
   font-weight: bold;
-}
-.fahrenheit {
-  font-weight: bold;
+  font-size: 20px;
+  color: #06113c;
 }
 
-.active {
-  color: #06113c;
-  cursor: default;
-}
-.active:hover {
-  color: #06113c;
-  text-decoration: none;
-}
 .wx-factors {
   color: whitesmoke;
   position: relative;

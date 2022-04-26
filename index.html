@@ -11,18 +11,25 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allerta&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/9c95089bc8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allerta&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/9c95089bc8.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="src/styles.css" />
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
       <div class="container">
         <header class="city-date">
-          <form class=" clearfix search-bar">
+          <form class="clearfix search-bar">
             <input
               type="text"
               name="search"
@@ -31,8 +38,16 @@
               autocomplete="off"
               autofocus
             />
-            <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button class="locationButton" id="locationButton"title="Use Current Location"><i class="fa-solid fa-location-dot"></i></button>
+            <button class="searchButton">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <button
+              class="locationButton"
+              id="locationButton"
+              title="Use Current Location"
+            >
+              <i class="fa-solid fa-location-dot"></i>
+            </button>
           </form>
           <h1 class="city-name"></h1>
           <h2></h2>
@@ -46,10 +61,7 @@
 
                 <span class="wx-degree temperature" id="today-wx">2</span>
                 <span class="degrees">
-                  <a href="#" class="celsius active" id="celsius">°C</a>
-                  
-                    | <a href="#" class="fahrenheit" id="fahrenheit">°F</a></span
-                  >
+                  <span class="celsius" id="celsius">°C
                 </span>
               </p>
             </div>
@@ -71,12 +83,15 @@
               </table>
             </div>
           </div>
-          <div class="forecast "></div>
+          <div class="forecast"></div>
         </section>
       </div>
     </div>
     <footer>
-      <small class="img-source">image from <a href="https://unsplash.com/" target="_blank">unsplash.com</a></small>
+      <small class="img-source"
+        >image from
+        <a href="https://unsplash.com/" target="_blank">unsplash.com</a></small
+      >
       <div class="author">
         <a
           href="https://github.com/Shanmv/SheCodes-Weather-App"
