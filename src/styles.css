@@ -158,11 +158,7 @@ p .wx-degree {
   text-align: center;
   transition: 50ms all ease-in;
 }
-.wk-forecast:hover {
-  backdrop-filter: blur(10px);
-  background: rgba(245, 245, 245, 0.5);
-  cursor: pointer;
-}
+
 .wx-icon {
   margin: 0;
   position: relative;
@@ -175,7 +171,7 @@ p .wx-degree {
   opacity: 0.7;
 }
 .img-source {
-  bottom: 45px;
+  bottom: 30px;
   color: whitesmoke;
   display: block;
   opacity: 0.4;
@@ -192,7 +188,7 @@ p .wx-degree {
   bottom: 0;
   color: #ddddddce;
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
   position: fixed;
   text-align: center;
   width: 100%;
