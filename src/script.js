@@ -33,7 +33,7 @@ function formatDate(currentDate) {
   let twelveHr = hour % 12 || 12;
   let minute = currentDate.getMinutes();
   minute = minute <= 9 ? "0" + minute : minute;
-  let formattedDate = `${day}, ${month} ${date}, ${year}   <small>Last updated at </small>${twelveHr}:${minute} ${amPm}`;
+  let formattedDate = `${day}, ${month} ${date}, ${year}   <small>Last updated at ${twelveHr}:${minute} ${amPm} </small>`;
   return formattedDate;
 }
 let today = formatDate(new Date());
