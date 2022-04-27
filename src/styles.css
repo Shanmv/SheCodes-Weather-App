@@ -80,8 +80,8 @@ h1 {
 h2 {
   font-size: 24px;
   margin: 0;
-  position: relative;
-  bottom: 20px;
+  position: fixed;
+  top: 275px;
 }
 .current-wx {
   color: #06113c;
