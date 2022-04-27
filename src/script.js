@@ -132,7 +132,7 @@ function displayTemp(response) {
   weather.innerHTML = `${response.data.current.weather[0].description}`;
   currentIcon.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
+    `https://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`
   );
   let weatherLoading = document.querySelector(".bg-color");
   weatherLoading.classList.remove("loading");
@@ -150,7 +150,7 @@ function displayForecast(response) {
         forecastHTML +
         `<div class="col wk-forecast">
               <h6 class="wk-Day">${day}</h6>
-              <img src="http://openweathermap.org/img/wn/${
+              <img src="https://openweathermap.org/img/wn/${
                 forecastDay.weather[0].icon
               }@2x.png" class="wx-icon"/>
               <h6 class="wx-forecast">
