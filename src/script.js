@@ -46,29 +46,29 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?&exclude=minutely,
 let geoEndpoint = `https://api.openweathermap.org/geo/1.0/reverse?appid=${apiKey}`;
 
 function onSuccess(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let positionUrl = `${apiUrl}&lat=${lat}&lon=${lon}`;
-  axios.get(positionUrl).then(displayTemp);
-  axios.get(positionUrl).then(displayForecast);
   if (navigator.geolocation) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let positionUrl = `${apiUrl}&lat=${lat}&lon=${lon}`;
     let geoApi = `${geoEndpoint}&lat=${lat}&lon=${lon}`;
+    axios.get(positionUrl).then(displayTemp);
+    axios.get(positionUrl).then(displayForecast);
+
     axios.get(geoApi).then(getCityName);
   }
-  function getCityName(response) {
-    let cityHeading = document.querySelector("h1");
-    cityHeading.innerHTML = `${response.data[0].name}`;
-  }
 }
-function onError(error) {
-  if (!navigator.geolocation || error.code === error.PERMISSION_DENIED) {
-    alert(`Unable to retrieve your location, please enter city`);
-  }
+function getCityName(response) {
+  let cityHeading = document.querySelector("h1");
+  cityHeading.innerHTML = `${response.data[0].name}, ${response.data[0].state}`;
+}
+function onError() {
+  alert(`Unable to retrieve your location, please enter city`);
 }
 window.onload = navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
 let currentPosition = document.querySelector("#locationButton");
 currentPosition.addEventListener("click", fetchLocation);
+
 function fetchLocation() {
   navigator.geolocation.watchPosition(onSuccess, onError);
 }
@@ -82,7 +82,9 @@ function handleSubmit(event) {
     alert(`Please enter city`);
     return null;
   } else {
-    search(`${city.value}`);
+    if (city.value.length > 0) {
+      search(`${city.value}`);
+    }
   }
 }
 
@@ -98,7 +100,7 @@ function error() {
   }
 }
 function search(city) {
-  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+  let geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=3&appid=${apiKey}`;
   axios.get(geoUrl).then(getCoordinates).catch(error);
 }
 
@@ -116,7 +118,6 @@ function displayTemp(response) {
   var currentTemp = Math.round(response.data.current.temp);
 
   let trueTemp = document.querySelector("#today-wx");
-  trueTemp.innerHTML = `${currentTemp}`;
 
   let chancePrecip = document.querySelector("#percentPrecip");
   let Humidity = document.querySelector("#percentHum");
@@ -124,6 +125,7 @@ function displayTemp(response) {
   let weather = document.querySelector("h4");
   let currentIcon = document.querySelector(".weather-icon");
 
+  trueTemp.innerHTML = `${currentTemp}`;
   chancePrecip.innerHTML = `${Math.round(response.data.daily[0].pop)}%`;
   Humidity.innerHTML = `${response.data.current.humidity}%`;
   windspeed.innerHTML = `${Math.round(response.data.current.wind_speed)}km/h`;
